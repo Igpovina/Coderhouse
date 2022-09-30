@@ -6,7 +6,7 @@ class User_data():
         self.first_name = f_name
         self.last_name = l_name
         self.DOB = dob
-        self.password = passwd
+        self.__password = passwd
         self.user_ID = ID
         
     # def _popualte(self):
@@ -14,21 +14,19 @@ class User_data():
 
 
 class User(User_data):
-    def __init__(self, User_data):
-        if  User_data.user_id ==  -1:
+    def __init__(self, f_name, l_name, dob, passwd, ID):
+        if  self.user_id ==  -1:
             self.new_user = True
         else:
             self.new_user = False
+            super().__init__(f_name, l_name, dob, passwd, ID)
 
-            self._populate()
             
-    def _populate(self):
+            
+    def __populate():
         #Query self.user_id from database and
         #set all instance variables, e.g.
-        self.first_name = User_data.first_name
-        self.last_name = User_data.last_name
-        self.DOB = User_data.DOB
-        self.password = User_data.password
+       pass
 
     def commit(self):
         if self.new_user:
@@ -45,12 +43,14 @@ class User(User_data):
     def getFullname(self):
         return self.first_name, " ", self.last_name
     
-class admin():
-    pass
+class admin(User_data):
+    def __init__(self, f_name, l_name, dob, passwd, ID):
+        super().__init__(f_name, l_name, dob, passwd, ID)
+        
 
 class Post():
     def __init__(self, txt):
-        body = txt
+        self.body = txt
     
     def submmit():
         pass
