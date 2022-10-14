@@ -28,14 +28,12 @@ def saluda_con_nombre(request, nombre):
 
 def probando_template(request):
     # mi_HTML = open(r"C:\\Users\nacho\OneDrive\Documentos\GitHub\Coderhouse\Clase17\project\project\templates\templates1.html")
-    diccionario = {'my_name':'Ignacio'}
-    plantilla = loader.get_template('templates1.html')
     # plantilla = Template(mi_HTML.read())
-    
     # mi_HTML.close()
-    
     # mi_contexto = Context({'my_name':'Ignacio'})
     
+    diccionario = {'my_name':'Ignacio', 'notas':[8,5,9,10]}
+    plantilla = loader.get_template('templates1.html')
     documento = plantilla.render(diccionario)
     
     return HttpResponse(documento)

@@ -10,5 +10,20 @@
     <h1>Primer Template</h1>
 
     <p> No entiendo {{my_name}}</p>
+
+    <ul>
+        {% for nota in notas %}
+            {% if nota >= 6 %}
+                <li style="color: green;">
+                    {{nota}} - aprobado
+                </li>
+            {% else %}
+                <li style="color: red;">
+                    {{nota}} - desaprobado
+                </li>
+            {% endif %} 
+        
+        {% endfor %}
+    </ul>
 </body>
 </html>
