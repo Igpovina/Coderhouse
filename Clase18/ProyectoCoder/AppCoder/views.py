@@ -17,3 +17,22 @@ def lista_curso(request):
     
     return render(request, 'lista_cursos.html', {"lista_cursos": lista})
         
+def inicio(request):
+    return render(request, 'inicio.html')
+    return HttpResponse('vista inicio')
+
+def vista_curso(request):
+    return render(request, 'cursos.html')
+    return HttpResponse('vista cursos')
+
+def profesores(request):
+    return render(request, 'profesores.html')
+    return HttpResponse('vista profesores')
+
+def alumno(request):
+    return render(request, 'alumno.html')
+    return HttpResponse('vista alumno')
+
+def entregable(request):
+    return render(request, 'entregable.html')
+    return HttpResponse('vista entregable')
