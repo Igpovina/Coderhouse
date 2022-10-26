@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.urls import path
-from AppCoder.views import curso, lista_curso, inicio, vista_curso, profesores,alumno,entregable
+from AppCoder.views import curso, lista_curso, inicio, vista_curso, profesores, alumno,entregable, cursoFormulario, busqueda_cadama, buscar
 
 urlpatterns = [
     path('agrega-curso/<nombre>/<camada>/', curso),
@@ -25,4 +25,7 @@ urlpatterns = [
     path('profesores/', profesores, name ='Profesores'),
     path('alumno/', alumno, name = 'Alumno' ),
     path('entregable/', entregable, name= 'Entregable'),
+    path('cursoformulario/', cursoFormulario, name='cursoFormulario'),
+    path('busqueda_camada/', busqueda_cadama, name='busqueda_camada'),
+    path('buscar/', buscar, name='buscar')
 ]

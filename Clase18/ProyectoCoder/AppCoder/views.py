@@ -1,5 +1,7 @@
-from django.shortcuts import render
+import re
+from django.shortcuts import redirect, render
 from .models import Curso
+from .forms import CursoFormulario
 from django.http import HttpResponse
 
 # Create your views here.
@@ -25,12 +27,11 @@ def vista_curso(request):
     lista = Curso.objects.all()
     
     return render(request, 'cursos.html', {"lista_cursos": lista})
-    # return render(request, 'cursos.html')
-    # return HttpResponse('vista cursos')
+    
 
 def profesores(request):
     return render(request, 'profesores.html')
-    return HttpResponse('vista profesores')
+    \
 
 def alumno(request):
     return render(request, 'alumno.html')
@@ -38,4 +39,25 @@ def alumno(request):
 
 def entregable(request):
     return render(request, 'entregables.html')
-    return HttpResponse('vista entregable')
+    
+def cursoFormulario(request):
+    if request.method == 'POST':
+        mi_formulario = CursoFormulario(request.POST)
+        if mi_formulario.is_valid():
+            data = mi_formulario.cleaned_data
+            curso = Curso(nombre = data['curso'], camada = data['camada'])
+            curso.save()
+            return redirect('Cursos')
+        
+    else:
+        mi_formulario = CursoFormulario()
+            
+        return render(request, 'cursoFormulario.html', {'mi_formulario':mi_formulario})
+
+def busqueda_cadama(request):
+    return render(request, 'busquedaCamada.html')
+
+def buscar(request):
+    camada = request.GET['camada']
+    cursos = Curso.objects.get(camada = camada)
+    return render(request, 'buscar.html', {'cursos':cursos})

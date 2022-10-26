@@ -6,9 +6,10 @@
         <h1> Vista de Cursos</h1>
         <ul>
         
-            {% for curso in lista_cursos %}
-                <li>{{curso.nombre}} - {{curso.camada}}</li>
-            {% endfor %}
+            
+                <p>El curso es</p>
+                <li>{{cursos.nombre}} - {{cursos.camada}}</li>
+            
                 
         </ul>
         <a href="{% url 'cursoFormulario' %}"> Agregar Curso</a>

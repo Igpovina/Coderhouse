@@ -1,0 +1,10 @@
+{% extends 'padre.html' %}
+
+
+{% block contenidoQueCambia %}
+    <form action="{% url 'buscar'%}" method="GET">{% csrf_token %}
+        <p>Ingrese numero de camada:</p>
+        <input type="number" name="camada">
+        <input type="submit" value="Buscar camada">
+    </form>
+{% endblock contenidoQueCambia %}
