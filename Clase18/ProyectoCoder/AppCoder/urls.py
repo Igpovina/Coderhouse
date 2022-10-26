@@ -19,9 +19,9 @@ from AppCoder.views import curso, lista_curso, inicio, vista_curso, profesores,a
 
 urlpatterns = [
     path('agrega-curso/<nombre>/<camada>/', curso),
-    path('ver-cursos/', lista_curso, name = 'Cursos'),
+    path('ver-cursos/', lista_curso),
     path('', inicio),
-    path('vista-cursos/',vista_curso),
+    path('vista-cursos/',vista_curso, name = 'Cursos'),
     path('profesores/', profesores, name ='Profesores'),
     path('alumno/', alumno, name = 'Alumno' ),
     path('entregable/', entregable, name= 'Entregable'),

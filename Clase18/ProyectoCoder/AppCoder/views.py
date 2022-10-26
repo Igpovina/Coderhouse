@@ -22,8 +22,11 @@ def inicio(request):
     return HttpResponse('vista inicio')
 
 def vista_curso(request):
-    return render(request, 'cursos.html')
-    return HttpResponse('vista cursos')
+    lista = Curso.objects.all()
+    
+    return render(request, 'cursos.html', {"lista_cursos": lista})
+    # return render(request, 'cursos.html')
+    # return HttpResponse('vista cursos')
 
 def profesores(request):
     return render(request, 'profesores.html')
@@ -34,5 +37,5 @@ def alumno(request):
     return HttpResponse('vista alumno')
 
 def entregable(request):
-    return render(request, 'entregable.html')
+    return render(request, 'entregables.html')
     return HttpResponse('vista entregable')
