@@ -25,11 +25,18 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a style='margin-right: 55px;' class="navbar-brand" href="#!">Inicio</a>
-                <a class="navbar-brand" href="{% url 'Profesores' %}">Profesores</a>
+                <a class="navbar-brand" href="{% url 'leer_profesores' %}">Profesores</a>
                 <a class="navbar-brand" href="{% url 'Cursos' %}">Cursos</a>
                 <a class="navbar-brand" href="{% url 'Alumno' %}">Alumnos</a>
                 <a class="navbar-brand" href="{% url 'Entregable' %}">Entregables</a>
-                <a class="btn btn-primary" href="#signup">Iniciar</a>
+                
+                {% if user.is_authenticated %}
+                
+                <a class="btn btn-primary" href="{% url 'logout' %}">logout</a>
+                {% else %}
+                <a class="btn btn-primary" href="{% url 'login' %}">Iniciar</a>
+                {% endif %}
+                    
             </div>
         </nav>
         <!-- Masthead-->

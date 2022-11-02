@@ -1,0 +1,9 @@
+{% extends 'padre.html' %}
+
+{% block contenidoQueCambia %}
+    <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+
+        {{mi_formulario.as_p}}
+
+        <input type="submit" value="Iniciar Sesion"> <a href="{% url 'register' %}"> Create new user </a>
+{% endblock contenidoQueCambia %}

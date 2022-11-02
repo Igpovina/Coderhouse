@@ -7,6 +7,21 @@
 {% endblock TITULO %}
    
 {% block contenidoQueCambia %}
-        <h1> Vista de Profesores</h1>
-        <h4>Bienvenido a la plataforma de coder</h4>
+    <h1> Vista de Profesores</h1>
+    <ul>
+
+        {% for profesor in profesores %}
+            <li>{{profesor.nombre}} - {{profesor.apellido}} - {{profesor.profesion}}</li>
+            <div>
+                <form action="{% url 'eliminar_profesor' profesor.id %}" method="POST">{% csrf_token %}
+                    <button type="submit">Eliminar</button>
+                </form>
+                <button>
+                    <a href="{% url 'editar_profesor' profesor.id%}">Editar</a>
+                </button>
+            </div>
+        {% endfor %}
+            
+    </ul>
+    <a href="{% url 'crear_profesores' %}"> Agregar Profesores</a>
 {% endblock contenidoQueCambia %}

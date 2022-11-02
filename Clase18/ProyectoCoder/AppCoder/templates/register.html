@@ -1,0 +1,9 @@
+{% extends 'padre.html' %}
+
+{% block contenidoQueCambia %}
+    <form action="{% url 'register' %}" method="POST">{% csrf_token %}
+
+        {{mi_formulario.as_p}}
+
+        <input type="submit" value="register">
+{% endblock contenidoQueCambia %}
